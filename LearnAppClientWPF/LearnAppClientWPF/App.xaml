@@ -4,12 +4,22 @@
              xmlns:local="clr-namespace:LearnAppClientWPF"
              xmlns:views="clr-namespace:LearnAppClientWPF.Views"
              xmlns:viewModels="clr-namespace:LearnAppClientWPF.ViewModels"
-             StartupUri="Views/LoginWindow.xaml">
+             StartupUri="Views/MainWindow.xaml">
+
     <Application.Resources>
-        <!--<Datatemplate DataType="{x:Type viewModels:}"-->
-        
-        
         <ResourceDictionary>
+            <DataTemplate DataType="{x:Type viewModels:LoginViewModel}">
+                <views:LoginView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModels:RegisterViewModel}">
+                <views:RegisterView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModels:MainViewModel}">
+                <views:MainWindow />
+            </DataTemplate>
+
             <ResourceDictionary.MergedDictionaries>
                 <!-- MahApps.Metro resource dictionaries. Make sure that all file names are Case Sensitive! -->
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
@@ -18,5 +28,7 @@
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Light.Blue.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
+        
+        
     </Application.Resources>
 </Application>

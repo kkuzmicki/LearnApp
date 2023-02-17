@@ -1,11 +1,8 @@
-﻿using MahApps.Metro.Controls;
+﻿using LearnAppClientWPF.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
 using System.Text;
-using System.Text.Json.Nodes;
-using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -16,23 +13,27 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using LearnAppClientWPF.Models;
-using LearnAppClientWPF.ViewModels;
 
 namespace LearnAppClientWPF.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for RegisterView.xaml
     /// </summary>
-    public partial class MainWindow : MetroWindow
+    public partial class RegisterView : UserControl
     {
-        public MainWindow()
+        public RegisterView()
         {
             InitializeComponent();
 
-            DataContext = new MainViewModel();
+            DataContext = new RegisterViewModel();
         }
 
-    
+        private void psB_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (this.DataContext != null)
+            {
+                ((dynamic)this.DataContext).PasswordText = ((PasswordBox)sender).Password;
+            }
+        }
     }
 }

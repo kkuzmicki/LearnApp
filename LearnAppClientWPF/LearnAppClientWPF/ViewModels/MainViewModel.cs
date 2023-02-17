@@ -9,35 +9,22 @@ namespace LearnAppClientWPF.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
-        public string? EmailText { get; set; } = "admin1@email.com";
-        public string? PasswordText { get; set; } = "strongPassword1";
+        public ViewModelBase CurrentViewModel { get; set; }
 
-        public ICommand LoginCommand => new RelayCommand(SignIn);
+        public ICommand GoToRegisterCommand => new RelayCommand(GoToRegister);
 
-        private async void SignIn()
+
+        public MainViewModel()
         {
-            if (String.IsNullOrEmpty(EmailText) || !Validator.IsEmailAddressValid(EmailText))
-            {
-                Trace.WriteLine("wrong email");
-                return;
-            }
+            CurrentViewModel = new LoginViewModel();
+        }
 
-            if (String.IsNullOrEmpty(PasswordText) || !Validator.IsPasswordValid(PasswordText))
-            {
-                Trace.WriteLine("wrong password");
-                return;
-            }
-
-            try
-            {
-                UserModel userModel = await HttpHelper.GetUserWithEmailAddressAndPassword(EmailText, Cryptography.HashPassword_SHA256(PasswordText));
-                App.Current.Properties["UsersID"] = userModel.id;
-                Trace.WriteLine(App.Current.Properties["UsersID"] ?? "No 'UsersID'");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Ex" + ex.Message);
-            }
+        public void GoToRegister()
+        {
+            CurrentViewModel = new RegisterViewModel();
+            //NotifyPropertyChanged("CurrentViewModel");
+            Trace.WriteLine("aaaa");
+            OnPropertyChanged(nameof(CurrentViewModel));
         }
     }
 }
