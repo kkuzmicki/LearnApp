@@ -1,8 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "0MHIVJUZ83HPH8goZRfHf2lND5uQK5SOe8T7UY9iAWh6E/c3ZWyeE0VtkC+/ORlAxqcx2xbo+bm9SmJkUUkXFQ==",
+  "dgSpecHash": "pBHka9y09hwnHThLBgh4CsJXqK7gJoz+v0taRwFBht/Z9Wy5UHQLBH90IaZDDC5Jf1/QU8mdTHcklpJobuMv3w==",
   "success": true,
   "projectFilePath": "C:\\Projects\\CS\\PROJECT_NET_LEARN_APP\\LearnAppClientWPF\\LearnAppClientWPF\\LearnAppClientWPF.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Kamil\\.nuget\\packages\\communitytoolkit.mvvm\\8.1.0\\communitytoolkit.mvvm.8.1.0.nupkg.sha512",
+    "C:\\Users\\Kamil\\.nuget\\packages\\controlzex\\4.4.0\\controlzex.4.4.0.nupkg.sha512",
+    "C:\\Users\\Kamil\\.nuget\\packages\\mahapps.metro\\2.4.9\\mahapps.metro.2.4.9.nupkg.sha512",
+    "C:\\Users\\Kamil\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\7.0.0\\microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
+    "C:\\Users\\Kamil\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\Kamil\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.19\\microsoft.xaml.behaviors.wpf.1.1.19.nupkg.sha512",
+    "C:\\Users\\Kamil\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512"
+  ],
   "logs": []
 }

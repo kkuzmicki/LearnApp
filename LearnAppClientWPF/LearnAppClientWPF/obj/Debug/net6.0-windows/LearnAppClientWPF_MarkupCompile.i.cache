@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Projects\CS\PROJECT_NET_LEARN_APP\LearnAppClientWPF\LearnAppClientWPF\App.xaml
-11407045341
+2-1457342498
 
-52026032853
-194-2004305220
-MainWindow.xaml;
+152042545530
+200-1688101187
+Views\LoginWindow.xaml;Views\MainWindow.xaml;
 
-False
+True
 

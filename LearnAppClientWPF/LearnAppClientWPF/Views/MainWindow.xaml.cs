@@ -10,10 +10,9 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LearnAppClientWPF
+namespace LearnAppClientWPF.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -23,6 +22,15 @@ namespace LearnAppClientWPF
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void HomeL_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void SettingsL_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
         }
     }
 }
