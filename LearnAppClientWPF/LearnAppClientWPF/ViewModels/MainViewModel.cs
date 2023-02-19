@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using LearnAppClientWPF.Models;
+using LearnAppClientWPF.Stores;
 using LearnAppClientWPF.Utilities;
 using System;
 using System.Diagnostics;
@@ -9,21 +10,23 @@ namespace LearnAppClientWPF.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
-        public ViewModelBase CurrentViewModel { get; set; }
+        private readonly NavigationStore _navigationStore;
 
-        public ICommand GoToRegisterCommand => new RelayCommand(GoToRegister);
+        public ViewModelBase CurrentViewModel => _navigationStore.CurrentViewModel;
 
+        //public ICommand GoToRegisterCommand => new RelayCommand(GoToRegister);
 
-        public MainViewModel()
+        //public ICommand GoToLoginCommand => new RelayCommand(GoToLogin);
+
+        public MainViewModel(NavigationStore navigationStore)
         {
-            CurrentViewModel = new LoginViewModel();
+            _navigationStore = navigationStore;
+
+            _navigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
         }
 
-        public void GoToRegister()
+        private void OnCurrentViewModelChanged()
         {
-            CurrentViewModel = new RegisterViewModel();
-            //NotifyPropertyChanged("CurrentViewModel");
-            Trace.WriteLine("aaaa");
             OnPropertyChanged(nameof(CurrentViewModel));
         }
     }

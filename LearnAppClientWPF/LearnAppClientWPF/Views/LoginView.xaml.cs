@@ -25,7 +25,7 @@ namespace LearnAppClientWPF.Views
         {
             InitializeComponent();
 
-            DataContext = new LoginViewModel();
+            //DataContext = new LoginViewModel();
         }
 
         private void psB_PasswordChanged(object sender, RoutedEventArgs e)

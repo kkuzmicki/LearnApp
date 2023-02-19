@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:LearnAppClientWPF"
              xmlns:views="clr-namespace:LearnAppClientWPF.Views"
-             xmlns:viewModels="clr-namespace:LearnAppClientWPF.ViewModels"
-             StartupUri="Views/MainWindow.xaml">
+             xmlns:viewModels="clr-namespace:LearnAppClientWPF.ViewModels">
 
     <Application.Resources>
         <ResourceDictionary>
@@ -18,6 +17,10 @@
 
             <DataTemplate DataType="{x:Type viewModels:MainViewModel}">
                 <views:MainWindow />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModels:MenuViewModel}">
+                <views:MenuView />
             </DataTemplate>
 
             <ResourceDictionary.MergedDictionaries>

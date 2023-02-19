@@ -29,10 +29,7 @@ namespace LearnAppClientWPF.Views
         public MainWindow()
         {
             InitializeComponent();
-
-            DataContext = new MainViewModel();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
-
-    
     }
 }

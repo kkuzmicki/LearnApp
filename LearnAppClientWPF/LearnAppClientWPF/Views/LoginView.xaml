@@ -12,9 +12,8 @@
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBox MinWidth="150" MaxWidth="200" Text="{Binding EmailText}"  Margin="10"/>
             <PasswordBox MinWidth="150" MaxWidth="200" x:Name="psB" Margin="10" PasswordChanged="psB_PasswordChanged"/>
-            <Button MinWidth="150" MaxWidth="200" Command="{Binding LoginCommand}" x:Name="btnSignIn" Margin="10" Style="{DynamicResource MahApps.Styles.Button.Square}" >Sign In</Button>
-            <Button MinWidth="150" MaxWidth="200" Command="{Binding DataContext.GoToRegisterCommand, RelativeSource=
-    {RelativeSource AncestorType={x:Type local:MainWindow}}, Mode=OneWay}" Margin="10" Style="{DynamicResource MahApps.Styles.Button.Square}">I don't have account</Button>
+            <Button MinWidth="150" MaxWidth="200" Command="{Binding NavigationRegisterCommand}" x:Name="btnSignIn" Margin="10" Style="{DynamicResource MahApps.Styles.Button.Square}" >Sign In</Button>
+            <Button MinWidth="150" MaxWidth="200" Command="{Binding NavigationRegisterCommand}" Margin="10" Style="{DynamicResource MahApps.Styles.Button.Square}">I don't have account</Button>
         </StackPanel>
     </Border>
 </UserControl>

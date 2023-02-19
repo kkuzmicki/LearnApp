@@ -1,5 +1,4 @@
-﻿using LearnAppClientWPF.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,21 +16,13 @@ using System.Windows.Shapes;
 namespace LearnAppClientWPF.Views
 {
     /// <summary>
-    /// Interaction logic for RegisterView.xaml
+    /// Interaction logic for MenuView.xaml
     /// </summary>
-    public partial class RegisterView : UserControl
+    public partial class MenuView : UserControl
     {
-        public RegisterView()
+        public MenuView()
         {
             InitializeComponent();
-        }
-
-        private void psB_PasswordChanged(object sender, RoutedEventArgs e)
-        {
-            if (this.DataContext != null)
-            {
-                ((dynamic)this.DataContext).PasswordText = ((PasswordBox)sender).Password;
-            }
         }
     }
 }
