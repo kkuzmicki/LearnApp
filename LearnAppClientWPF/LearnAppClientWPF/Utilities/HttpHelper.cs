@@ -28,5 +28,19 @@ namespace LearnAppClientWPF.Utilities
             UserModel receivedUser = JsonSerializer.Deserialize<UserModel>(responseBody)!;
             return receivedUser;
         }
+
+        static public async Task<bool> CreateUserWithEmailAddressAndPassword(UserModel newUser)
+        {
+            HttpClient client = new();
+            client.BaseAddress = new Uri("http://localhost:5000/");
+
+            string userJson = JsonSerializer.Serialize<UserModel>(newUser);
+
+            var content = new StringContent(userJson, Encoding.UTF8, "application/json");
+
+            var result = await client.PostAsync("api/Users", content);
+            string resultContent = await result.Content.ReadAsStringAsync();
+            return result.IsSuccessStatusCode;
+        }
     }
 }

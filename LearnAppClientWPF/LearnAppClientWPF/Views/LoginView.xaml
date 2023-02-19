@@ -8,11 +8,16 @@
           
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="booleanVisibilityConverter"/>
+    </UserControl.Resources>
     <Border Padding="20">
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBox MinWidth="150" MaxWidth="200" Text="{Binding EmailText}"  Margin="10"/>
             <PasswordBox MinWidth="150" MaxWidth="200" x:Name="psB" Margin="10" PasswordChanged="psB_PasswordChanged"/>
-            <Button MinWidth="150" MaxWidth="200" Command="{Binding NavigationRegisterCommand}" x:Name="btnSignIn" Margin="10" Style="{DynamicResource MahApps.Styles.Button.Square}" >Sign In</Button>
+            <Label Content="{Binding ErrorMessage}" Visibility="{Binding ErrorMessageHasValue, 
+   Converter={StaticResource booleanVisibilityConverter}}" Foreground="Red" />
+            <Button MinWidth="150" MaxWidth="200" Command="{Binding LoginCommand}" x:Name="btnSignIn" Margin="10" Style="{DynamicResource MahApps.Styles.Button.Square}" >Sign In</Button>
             <Button MinWidth="150" MaxWidth="200" Command="{Binding NavigationRegisterCommand}" Margin="10" Style="{DynamicResource MahApps.Styles.Button.Square}">I don't have account</Button>
         </StackPanel>
     </Border>

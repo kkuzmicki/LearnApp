@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using LearnAppClientWPF.Commands;
 using LearnAppClientWPF.Models;
+using LearnAppClientWPF.Services;
 using LearnAppClientWPF.Stores;
 using LearnAppClientWPF.Utilities;
 using System;
@@ -17,42 +18,39 @@ namespace LearnAppClientWPF.ViewModels
     {
         public string? EmailText { get; set; } = "admin1@email.com";
         public string? PasswordText { get; set; } = "strongPassword1";
+        private string? _errorMessage = "";
+        public string? ErrorMessage
+        {
+            get
+            {
+                return _errorMessage;
+            }
+            set
+            {
+                _errorMessage = value;
+                OnPropertyChanged(nameof(ErrorMessage));
+                OnPropertyChanged(nameof(ErrorMessageHasValue));
+            }
+        }
+
+        public bool ErrorMessageHasValue => !String.IsNullOrEmpty(_errorMessage);
 
         //public ICommand LoginCommand => new RelayCommand(SignIn);
         public ICommand NavigationRegisterCommand { get; }
+        public ICommand LoginCommand { get; }
 
         public LoginViewModel(NavigationStore navigationStore)
         {
-            NavigationRegisterCommand = new NavigateCommand<RegisterViewModel>(navigationStore, () => new RegisterViewModel(navigationStore));
+            NavigationRegisterCommand = new NavigateCommand<RegisterViewModel>(new NavigationService<RegisterViewModel>(
+                navigationStore, () => new RegisterViewModel(navigationStore)));
+
+            LoginCommand = new LoginCommand(this, new NavigationService<MenuViewModel>(
+                navigationStore, () => new MenuViewModel(navigationStore)));
         }
 
-        //private async void SignIn()
-        //{
-        //    if (String.IsNullOrEmpty(EmailText) || !Validator.IsEmailAddressValid(EmailText))
-        //    {
-        //        Trace.WriteLine("wrong email");
-        //        return;
-        //    }
-
-        //    if (String.IsNullOrEmpty(PasswordText) || !Validator.IsPasswordValid(PasswordText))
-        //    {
-        //        Trace.WriteLine("wrong password");
-        //        CurrentViewModel = new RegisterViewModel();
-        //        OnPropertyChanged(nameof(CurrentViewModel));
-        //        return;
-        //    }
-
-        //    try
-        //    {
-        //        UserModel userModel = await HttpHelper.GetUserWithEmailAddressAndPassword(EmailText, Cryptography.HashPassword_SHA256(PasswordText));
-        //        App.Current.Properties["UsersID"] = userModel.id;
-        //        Trace.WriteLine(App.Current.Properties["UsersID"] ?? "No 'UsersID'");
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Trace.WriteLine("Ex: " + ex.Message);
-        //    }
-        //}
-
+        public void ErrorMessageChanged()
+        {
+            OnPropertyChanged(nameof(ErrorMessage));
+        }
     }
 }

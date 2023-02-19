@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using LearnAppClientWPF.Models;
+using LearnAppClientWPF.Stores;
 using LearnAppClientWPF.Utilities;
 using System;
 using System.Collections.Generic;
@@ -12,15 +13,12 @@ using System.Windows.Input;
 namespace LearnAppClientWPF.ViewModels
 {
     class MenuViewModel : ViewModelBase
-    {
+    {        
+        public string UsersID { get; set; }
 
-        //public string? EmailText { get; set; } = "admin1@email.com";
-        //public string? PasswordText { get; set; } = "strongPassword1";
-
-        //public ICommand LoginCommand => new RelayCommand(SignIn);
-
-
-        
-
+        public MenuViewModel(NavigationStore navigationStore)
+        {
+            UsersID = App.Current?.Properties["UsersID"]?.ToString() ?? "error";
+        }
     }
 }

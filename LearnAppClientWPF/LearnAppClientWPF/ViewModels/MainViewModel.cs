@@ -14,10 +14,6 @@ namespace LearnAppClientWPF.ViewModels
 
         public ViewModelBase CurrentViewModel => _navigationStore.CurrentViewModel;
 
-        //public ICommand GoToRegisterCommand => new RelayCommand(GoToRegister);
-
-        //public ICommand GoToLoginCommand => new RelayCommand(GoToLogin);
-
         public MainViewModel(NavigationStore navigationStore)
         {
             _navigationStore = navigationStore;

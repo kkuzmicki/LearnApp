@@ -20,7 +20,7 @@ namespace LearnAppClientWPF
         // ...
         protected override void OnStartup(StartupEventArgs e)
         {
-            NavigationStore navigationStore = new NavigationStore();
+            NavigationStore navigationStore = new();
 
             navigationStore.CurrentViewModel = new LoginViewModel(navigationStore);
 
