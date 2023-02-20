@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LearnAppClientWPF.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,11 +17,11 @@ using System.Windows.Shapes;
 namespace LearnAppClientWPF.Views.AppMainViews
 {
     /// <summary>
-    /// Interaction logic for MenuView.xaml
+    /// Interaction logic for SettingsView.xaml
     /// </summary>
-    public partial class MenuView : UserControl
+    public partial class SettingsView : UserControl
     {
-        public MenuView()
+        public SettingsView()
         {
             InitializeComponent();
         }

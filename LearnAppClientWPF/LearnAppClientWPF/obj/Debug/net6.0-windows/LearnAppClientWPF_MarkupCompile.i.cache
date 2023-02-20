@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Projects\CS\PROJECT_NET_LEARN_APP\LearnAppClientWPF\LearnAppClientWPF\App.xaml
-4537004025
+9217490238
 
-2695462313
+36705148254
 200-1688101187
-Views\AppMainView\MenuView.xaml;Views\LoginView.xaml;Views\MainWindow.xaml;Views\RegisterView.xaml;
+Views\AppMainView\AddView.xaml;Views\AppMainView\ExploreView.xaml;Views\AppMainView\HomeView.xaml;Views\AppMainView\MenuView.xaml;Views\AppMainView\SearchView.xaml;Views\AppMainView\SettingsView.xaml;Views\LoginView.xaml;Views\MainWindow.xaml;Views\RegisterView.xaml;
 
-False
+True
 

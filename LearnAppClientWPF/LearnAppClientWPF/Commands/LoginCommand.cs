@@ -3,6 +3,7 @@ using LearnAppClientWPF.Services;
 using LearnAppClientWPF.Stores;
 using LearnAppClientWPF.Utilities;
 using LearnAppClientWPF.ViewModels;
+using LearnAppClientWPF.ViewModels.AppMainViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;

@@ -1,6 +1,9 @@
 ﻿using LearnAppClientWPF.Stores;
 using LearnAppClientWPF.ViewModels;
 using LearnAppClientWPF.Views;
+using LearnAppClientWPF.Views.AppMainViews;
+using LearnAppClientWPF.ViewModels.AppMainViewModels;
+
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;

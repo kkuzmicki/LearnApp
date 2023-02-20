@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:LearnAppClientWPF"
              xmlns:views="clr-namespace:LearnAppClientWPF.Views"
-             xmlns:viewModels="clr-namespace:LearnAppClientWPF.ViewModels">
+             xmlns:viewModels="clr-namespace:LearnAppClientWPF.ViewModels"
+             xmlns:appMainViewModels="clr-namespace:LearnAppClientWPF.ViewModels.AppMainViewModels"
+             xmlns:appMainViews="clr-namespace:LearnAppClientWPF.Views.AppMainViews">
 
     <Application.Resources>
         <ResourceDictionary>
@@ -19,8 +21,28 @@
                 <views:MainWindow />
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type viewModels:MenuViewModel}">
-                <views:MenuView />
+            <DataTemplate DataType="{x:Type appMainViewModels:MenuViewModel}">
+                <appMainViews:MenuView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type appMainViewModels:HomeViewModel}">
+                <appMainViews:HomeView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type appMainViewModels:SearchViewModel}">
+                <appMainViews:SearchView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type appMainViewModels:ExploreViewModel}">
+                <appMainViews:ExploreView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type appMainViewModels:AddViewModel}">
+                <appMainViews:AddView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type appMainViewModels:SettingsViewModel}">
+                <appMainViews:SettingsView />
             </DataTemplate>
 
             <ResourceDictionary.MergedDictionaries>

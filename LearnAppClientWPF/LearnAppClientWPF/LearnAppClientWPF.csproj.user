@@ -18,6 +18,21 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Views\AppMainView\SettingsView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\AppMainView\SearchView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\AppMainView\AddView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\AppMainView\HomeView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\AppMainView\ExploreView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\LoginView.xaml">
       <SubType>Designer</SubType>
     </Page>
