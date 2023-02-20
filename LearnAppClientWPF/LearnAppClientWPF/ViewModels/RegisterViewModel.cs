@@ -19,8 +19,9 @@ namespace LearnAppClientWPF.ViewModels
         public string? EmailText { get; set; } = "";
         public string? ConfirmEmailText { get; set; } = "";
         public string? PasswordText { get; set; } = "";
+        public string? ConfirmPasswordText { get; set; } = "";
 
-        private string? _errorMessage = "test";
+        private string? _errorMessage = "";
         public string? ErrorMessage
         {
             get

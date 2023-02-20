@@ -11,5 +11,10 @@
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="booleanVisibilityConverter"/>
     </UserControl.Resources>
-    <Label Content="SETTINGS"/>
+    <Border Padding="20">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button MinWidth="150" MaxWidth="200" Command="{Binding NavigationEditUserCommand}" x:Name="btnSignIn" Margin="10" Style="{DynamicResource MahApps.Styles.Button.Square}" >Edit your profile</Button>
+            <Button MinWidth="150" MaxWidth="200" Command="{Binding SignOutCommand}" Margin="10" Style="{DynamicResource MahApps.Styles.Button.Square}">Sign out</Button>
+        </StackPanel>
+    </Border>
 </UserControl>

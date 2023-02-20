@@ -14,6 +14,8 @@ namespace LearnAppClientWPF.ViewModels
 
         public ViewModelBase CurrentViewModel => _navigationStore.CurrentViewModel;
 
+        //public string ErrorMessage { get; }
+
         public MainViewModel(NavigationStore navigationStore)
         {
             _navigationStore = navigationStore;

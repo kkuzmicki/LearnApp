@@ -13,8 +13,10 @@
     </UserControl.Resources>
     <Border Padding="20">
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBox MinWidth="150" MaxWidth="200" Text="{Binding EmailText}"  Margin="10"/>
-            <PasswordBox MinWidth="150" MaxWidth="200" x:Name="psB" Margin="10" PasswordChanged="psB_PasswordChanged"/>
+            <Label FontSize="10" Margin="10 10 10 0" FontFamily="Segoe UI Bold" Content="E-mail address"/>
+            <TextBox MinWidth="150" MaxWidth="200" Text="{Binding EmailText}"  Margin="10 0 10 10"/>
+            <Label FontSize="10" Margin="10 10 10 0" FontFamily="Segoe UI Bold" Content="Password"/>
+            <PasswordBox MinWidth="150" MaxWidth="200" x:Name="psB" Margin="10 0 10 10" PasswordChanged="psB_PasswordChanged"/>
             <Label Content="{Binding ErrorMessage}" Visibility="{Binding ErrorMessageHasValue, 
    Converter={StaticResource booleanVisibilityConverter}}" Foreground="Red" />
             <Button MinWidth="150" MaxWidth="200" Command="{Binding LoginCommand}" x:Name="btnSignIn" Margin="10" Style="{DynamicResource MahApps.Styles.Button.Square}" >Sign In</Button>

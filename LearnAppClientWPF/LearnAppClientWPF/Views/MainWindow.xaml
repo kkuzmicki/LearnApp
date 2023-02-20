@@ -8,9 +8,7 @@
         mc:Ignorable="d"
                  
                  
-        Title="Learn App" Height="400" Width="500">
+        Title="Learn App" Height="450" Width="550">
 
     <ContentControl Content="{Binding CurrentViewModel}" />
-
-
 </mah:MetroWindow>

@@ -27,7 +27,7 @@ namespace LearnAppClientWPF.Commands
 
         public override async void Execute(object parameter)
         {
-            MessageBox.Show($"Signing up {_viewModel.EmailText}...");
+            //MessageBox.Show($"Signing up {_viewModel.EmailText}...");
             if(await SignUp()) _navigationService.Navigate();
         }
 
@@ -35,38 +35,33 @@ namespace LearnAppClientWPF.Commands
         {
             if (String.IsNullOrEmpty(_viewModel.EmailText) || !Validator.IsEmailAddressValid(_viewModel.EmailText))
             {
-                Trace.WriteLine("wrong email");
-                _viewModel.ErrorMessage = "Wrong e-mail address";
+                _viewModel.ErrorMessage = "Wrong e-mail address format";
                 return false;
             }
 
             if (String.IsNullOrEmpty(_viewModel.ConfirmEmailText) || _viewModel.ConfirmEmailText != _viewModel.EmailText)
             {
-                Trace.WriteLine("wrong confirm email");
                 _viewModel.ErrorMessage = "Wrong confirmation of e-mail address";
-                return false;
-            }
-
-            if (String.IsNullOrEmpty(_viewModel.EmailText) || !Validator.IsEmailAddressValid(_viewModel.EmailText))
-            {
-                Trace.WriteLine("wrong email");
-                _viewModel.ErrorMessage = "Wrong e-mail address";
                 return false;
             }
 
             if (String.IsNullOrEmpty(_viewModel.PasswordText) || !Validator.IsPasswordValid(_viewModel.PasswordText))
             {
-                Trace.WriteLine("wrong password");
-                _viewModel.ErrorMessage = "Wrong password";
-                //_viewModel.ErrorMessageChanged();
+                _viewModel.ErrorMessage = "Wrong password format";
+                return false;
+            }
+
+            if (String.IsNullOrEmpty(_viewModel.ConfirmPasswordText) || _viewModel.ConfirmPasswordText != _viewModel.PasswordText)
+            {
+                _viewModel.ErrorMessage = "Wrong confirmation of password";
                 return false;
             }
 
             UserModel newUser = new UserModel()
             {
-                Email = _viewModel.EmailText,
-                Password = Cryptography.HashPassword_SHA256(_viewModel.PasswordText),
-                AboutMe = "I'm a new user!"
+                email = _viewModel.EmailText,
+                password = Cryptography.HashPassword_SHA256(_viewModel.PasswordText),
+                aboutMe = "I'm a new user!"
             };
 
             try

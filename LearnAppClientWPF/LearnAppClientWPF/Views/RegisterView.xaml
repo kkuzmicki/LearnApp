@@ -11,11 +11,19 @@
     </UserControl.Resources>
     <Border Padding="20">
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBox MinWidth="150" MaxWidth="200" Text="{Binding EmailText}"  Margin="10"/>
-            <TextBox MinWidth="150" MaxWidth="200" Text="{Binding ConfirmEmailText}"  Margin="10"/>
-            <PasswordBox MinWidth="150" MaxWidth="200" x:Name="psB" Margin="10" PasswordChanged="psB_PasswordChanged"/>
-            <Label Content="{Binding ErrorMessage}" Visibility="{Binding ErrorMessageHasValue, 
-   Converter={StaticResource booleanVisibilityConverter}}" Foreground="Red" />
+            <Label FontSize="10" Margin="10 10 10 0" FontFamily="Segoe UI Bold" Content="E-mail address"/>
+            <TextBox MinWidth="150" MaxWidth="200" Text="{Binding EmailText}"  Margin="10 0 10 10"/>
+            
+            <Label FontSize="10" Margin="10 10 10 0" FontFamily="Segoe UI Bold" Content="E-mail address confirmation"/>
+            <TextBox MinWidth="150" MaxWidth="200" Text="{Binding ConfirmEmailText}"  Margin="10 0 10 10"/>
+            
+            <Label FontSize="10" Margin="10 10 10 0" FontFamily="Segoe UI Bold" Content="Password"/>
+            <PasswordBox MinWidth="150" MaxWidth="200" x:Name="psB" Margin="10 0 10 10" PasswordChanged="psB_PasswordChanged"/>
+
+            <Label FontSize="10" Margin="10 10 10 0" FontFamily="Segoe UI Bold" Content="Password confirmation"/>
+            <PasswordBox MinWidth="150" MaxWidth="200" x:Name="psConfB" Margin="10 0 10 10" PasswordChanged="psConfB_PasswordChanged"/>
+
+            <Label Content="{Binding ErrorMessage}" Visibility="{Binding ErrorMessageHasValue, Converter={StaticResource booleanVisibilityConverter}}" Foreground="Red" />
             <Button MinWidth="150" MaxWidth="200" x:Name="btnSignIn" Margin="10" Command="{Binding RegisterCommand}" Style="{DynamicResource MahApps.Styles.Button.Square}" >Create new account</Button>
             <Button MinWidth="150" MaxWidth="200" Margin="10" Command="{Binding NavigationLoginCommand}" Style="{DynamicResource MahApps.Styles.Button.Square}" >Cancel</Button>
         </StackPanel>

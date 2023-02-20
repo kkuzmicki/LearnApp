@@ -33,5 +33,13 @@ namespace LearnAppClientWPF.Views
                 ((dynamic)this.DataContext).PasswordText = ((PasswordBox)sender).Password;
             }
         }
+
+        private void psConfB_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (this.DataContext != null)
+            {
+                ((dynamic)this.DataContext).ConfirmPasswordText = ((PasswordBox)sender).Password;
+            }
+        }
     }
 }

@@ -1,6 +1,4 @@
-﻿using LearnAppClientWPF.Utilities;
-using LearnAppClientWPF.ViewModels;
-using LearnAppClientWPF.ViewModels.AppMainViewModels;
+﻿using LearnAppClientWPF.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,20 +17,15 @@ using System.Windows.Shapes;
 namespace LearnAppClientWPF.Views.AppMainViews
 {
     /// <summary>
-    /// Interaction logic for LoginView.xaml
+    /// Interaction logic for AddView.xaml
     /// </summary>
-    public partial class HomeView : UserControl
+    public partial class EditUserView : UserControl
     {
-        public HomeView()
+        public EditUserView()
         {
             InitializeComponent();
-        }
 
-        private void UserControl_Loaded(object sender, RoutedEventArgs e)
-        {
-            var viewModel = (HomeViewModel)DataContext;
-            if (viewModel.HelloCommand.CanExecute(null))
-                viewModel.HelloCommand.Execute(null);
+            //DataContext = new LoginViewModel();
         }
     }
 }

@@ -45,6 +45,14 @@
                 <appMainViews:SettingsView />
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type appMainViewModels:EditUserViewModel}">
+                <appMainViews:EditUserView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModels:FlashcardSetViewModel}">
+                <views:FlashcardSetView />
+            </DataTemplate>
+
             <ResourceDictionary.MergedDictionaries>
                 <!-- MahApps.Metro resource dictionaries. Make sure that all file names are Case Sensitive! -->
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />

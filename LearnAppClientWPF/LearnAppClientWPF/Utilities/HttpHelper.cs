@@ -29,6 +29,24 @@ namespace LearnAppClientWPF.Utilities
             return receivedUser;
         }
 
+        static public async Task<UserModel> GetUserWithId(string Id)
+        {
+            // Call asynchronous network methods in a try/catch block to handle exceptions.
+
+            HttpClient client = new();
+            using HttpResponseMessage response = await client.GetAsync($"http://localhost:5000/api/Users/{Id}");
+            response.EnsureSuccessStatusCode();
+            string responseBody = await response.Content.ReadAsStringAsync();
+            // Above three lines can be replaced with new helper method below
+            // string responseBody = await client.GetStringAsync(uri);
+
+            Console.WriteLine(responseBody);
+
+            //var deptList = JsonSerializer.Deserialize<IList<UserModel>>(responseBody);
+            UserModel receivedUser = JsonSerializer.Deserialize<UserModel>(responseBody)!;
+            return receivedUser;
+        }
+
         static public async Task<bool> CreateUserWithEmailAddressAndPassword(UserModel newUser)
         {
             HttpClient client = new();
@@ -42,5 +60,7 @@ namespace LearnAppClientWPF.Utilities
             string resultContent = await result.Content.ReadAsStringAsync();
             return result.IsSuccessStatusCode;
         }
+
+        
     }
 }
