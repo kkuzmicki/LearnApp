@@ -9,6 +9,8 @@ namespace LearnAppClientWPF.ViewModels.AppMainViewModels
 {
     public class AddViewModel : ViewModelBase
     {
+
+
         public AddViewModel(NavigationStore mainNavigationStore, NavigationStore subNavigationStore) 
         { 
             // ...

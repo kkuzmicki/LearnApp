@@ -42,6 +42,5 @@ namespace LearnAppClientWPF.Commands
                 _viewModel.ErrorMessage = $"Could not sign in! Exception: {ex.Message}";
             }
         }
-
     }
 }

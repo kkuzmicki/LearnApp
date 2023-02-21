@@ -11,7 +11,7 @@ namespace LearnAppClientWPF.ViewModels.AppMainViewModels
     public class ExploreViewModel : ViewModelBase
     {
         public ObservableCollection<FlashcardSetViewModel> ListViewModels;
-        public string TEST { get; } = "TESTESFDSD";
+        public string TEST { get; } = "EXPLORE";
         //public FlashcardSetViewModel ListViewModels;
 
         public ExploreViewModel(NavigationStore mainNavigationStore, NavigationStore subNavigationStore) 
