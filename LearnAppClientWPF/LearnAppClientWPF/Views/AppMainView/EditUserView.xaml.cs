@@ -1,4 +1,5 @@
 ﻿using LearnAppClientWPF.ViewModels;
+using LearnAppClientWPF.ViewModels.AppMainViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,8 +25,13 @@ namespace LearnAppClientWPF.Views.AppMainViews
         public EditUserView()
         {
             InitializeComponent();
+        }
 
-            //DataContext = new LoginViewModel();
+        private void UserControl_Loaded_1(object sender, RoutedEventArgs e)
+        {
+            var viewModel = (EditUserViewModel)DataContext;
+            if (viewModel.LoadUserCommand.CanExecute(null))
+                viewModel.LoadUserCommand.Execute(null);
         }
     }
 }

@@ -61,6 +61,20 @@ namespace LearnAppClientWPF.Utilities
             return result.IsSuccessStatusCode;
         }
 
-        
+        static public async Task<bool> UpdateUser(UserModel changedUser)
+        {
+            string userID = App.Current.Properties["UsersID"]?.ToString() ?? "";
+
+            HttpClient client = new();
+            client.BaseAddress = new Uri("http://localhost:5000/");
+
+            string userJson = JsonSerializer.Serialize<UserModel>(changedUser);
+
+            var content = new StringContent(userJson, Encoding.UTF8, "application/json");
+
+            var result = await client.PutAsync($"api/Users/{userID}", content);
+            string resultContent = await result.Content.ReadAsStringAsync();
+            return result.IsSuccessStatusCode;
+        }
     }
 }

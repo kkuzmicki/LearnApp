@@ -7,7 +7,7 @@
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
           
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800" Loaded="UserControl_Loaded_1">
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="booleanVisibilityConverter"/>
     </UserControl.Resources>
@@ -45,17 +45,18 @@
         <Border Grid.Row="0" Grid.Column="2">
             <StackPanel>
                 <Label FontSize="10" Margin="10 10 10 0" FontFamily="Segoe UI Bold" Content="Facebook link"/>
-                <TextBox MinWidth="150" MaxWidth="200" Text="{Binding EmailText}"  Margin="10 0 10 10"/>
+                <TextBox MinWidth="150" MaxWidth="200" Text="{Binding FacebookLinkText}"  Margin="10 0 10 10"/>
 
                 <Label FontSize="10" Margin="10 10 10 0" FontFamily="Segoe UI Bold" Content="Twitter link"/>
-                <TextBox MinWidth="150" MaxWidth="200" Text="{Binding ConfirmEmailText}"  Margin="10 0 10 10"/>
+                <TextBox MinWidth="150" MaxWidth="200" Text="{Binding TwitterLinkText}"  Margin="10 0 10 10"/>
             </StackPanel>
         </Border>
 
         <Border Grid.Row="1" Grid.ColumnSpan="3" HorizontalAlignment="Center">
             <StackPanel Orientation="Horizontal">
-                <Button Width="150" Height="50" Command="{Binding NavigationRegisterCommand}" Margin="10" Style="{DynamicResource MahApps.Styles.Button.Square}">Cancel</Button>
-                <Button Width="150" Height="50" Command="{Binding LoginCommand}" x:Name="btnSignIn" Margin="10" Style="{DynamicResource MahApps.Styles.Button.Square}" >Confirm changes</Button>
+                <Label Content="{Binding ErrorMessage}" Visibility="{Binding ErrorMessageHasValue, Converter={StaticResource booleanVisibilityConverter}}" Foreground="Red" />
+                <Button Width="150" Height="50" Command="{Binding NavigationSettingsCommand}" Margin="10" Style="{DynamicResource MahApps.Styles.Button.Square}">Cancel</Button>
+                <Button Width="150" Height="50" Command="{Binding EditUserCommand}" x:Name="btnSignIn" Margin="10" Style="{DynamicResource MahApps.Styles.Button.Square}" >Confirm changes</Button>
             </StackPanel>
         </Border>
     </Grid>

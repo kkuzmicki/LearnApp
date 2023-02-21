@@ -28,9 +28,7 @@ namespace LearnAppClientWPF.Commands
 
         public override async void Execute(object parameter)
         {
-            //MessageBox.Show($"Logging in {_viewModel.EmailText}...");
-            if(await SignIn())            _navigationService.Navigate();
-            
+            if(await SignIn()) _navigationService.Navigate();
         }
 
         private async Task<bool> SignIn()

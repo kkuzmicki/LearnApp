@@ -16,25 +16,74 @@ namespace LearnAppClientWPF.Commands
 {
     class EditUserCommand : CommandBase
     {
-        private readonly HomeViewModel _viewModel;
+        private readonly EditUserViewModel _viewModel;
 
-        public EditUserCommand(HomeViewModel viewModel)
+        private readonly NavigationService<SettingsViewModel> _navigationService;
+
+        public EditUserCommand(EditUserViewModel viewModel, NavigationService<SettingsViewModel> navigationService)
         {
             _viewModel = viewModel;
+            _navigationService = navigationService;
         }
 
         public override async void Execute(object parameter)
         {
+            //MessageBox.Show($"Signing up {_viewModel.EmailText}...");
+            if (await UpdateUser()) _navigationService.Navigate();
+        }
+
+        private async Task<bool> UpdateUser()
+        {
+            if (String.IsNullOrEmpty(_viewModel.EmailText) || !Validator.IsEmailAddressValid(_viewModel.EmailText))
+            {
+                _viewModel.ErrorMessage = "Wrong e-mail address format";
+                return false;
+            }
+
+            if (String.IsNullOrEmpty(_viewModel.ConfirmEmailText) || _viewModel.ConfirmEmailText != _viewModel.EmailText)
+            {
+                _viewModel.ErrorMessage = "Wrong confirmation of e-mail address";
+                return false;
+            }
+
+            if (!String.IsNullOrEmpty(_viewModel.FacebookLinkText) && Uri.IsWellFormedUriString(_viewModel.FacebookLinkText, UriKind.Absolute))
+            {
+                _viewModel.ErrorMessage = "Wrong Facebook link format";
+                return false;
+            }
+
+            if (String.IsNullOrEmpty(_viewModel.TwitterLinkText) && Uri.IsWellFormedUriString(_viewModel.TwitterLinkText, UriKind.Absolute))
+            {
+                _viewModel.ErrorMessage = "Wrong Twitter link format";
+                return false;
+            }
+
+            if (!String.IsNullOrEmpty(_viewModel.PhoneNumberText) && int.TryParse(_viewModel.PhoneNumberText, out _))
+            {
+                _viewModel.ErrorMessage = "Wrong phone number format";
+                return false;
+            }
+
+            UserModel newUser = new UserModel()
+            {
+                email = _viewModel.EmailText,
+                aboutMe = _viewModel.AboutMeText,
+                phoneNumber = _viewModel.PhoneNumberText,
+                facebookLink = _viewModel.FacebookLinkText,
+                twitterLink = _viewModel.TwitterLinkText,
+                password = _viewModel.PasswordText
+            };
+
             try
             {
-                _viewModel.loggedUser = await HttpHelper.GetUserWithId(App.Current.Properties["UsersID"]?.ToString() ?? "");
-                _viewModel.UserModelChanged();
+                await HttpHelper.UpdateUser(newUser);
+                return true;
             }
             catch (Exception ex)
             {
                 Trace.WriteLine("Ex: " + ex.Message);
                 _viewModel.ErrorMessage = $"Could not sign in! Exception: {ex.Message}";
-                throw;
+                return false;
             }
         }
     }
